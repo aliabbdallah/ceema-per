@@ -1,0 +1,49 @@
+# Flutter/Dart/Pub related
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+**/doc/api/
+**/ios/Flutter/.last_build_id
+
+# IDEs and editors
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# macOS/Linux/Windows system files
+.DS_Store
+*.swp
+
+# User-specific files and folders
+CV.pdf
+CW1.drawio
+~$mock.docx
+Desktop/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+
+# Sensitive files
+serviceAccount.json
+
+# Python virtual environments (if used)
+.venv/
+
+# Android Studio build artifacts
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Miscellaneous
+*.class
+*.log
+*.pyc
