@@ -1,53 +1,66 @@
-# Firestore to CSV Exporter
+ # Ceema
 
-This script exports your Firestore data to CSV files. Each collection in your Firestore database will be exported to a separate CSV file.
+Ceema is a Flutter-based mobile application for film enthusiasts. It combines a personal movie diary, social networking, and a machine-learning powered recommendation engine into one seamless experience, backed by a cost-optimized Firebase backend.
 
-## Prerequisites
+---
 
-1. Python 3.7 or higher
-2. Google Cloud project with Firestore enabled
-3. Proper authentication set up (either default credentials or a service account)
+## 🚀 Features
 
-## Setup
+- **User Authentication**  
+  • Email/password sign-up & login via Firebase Auth  
+  • Profiles stored under `users/{uid}` in Firestore  
 
-1. Install the required dependencies:
-```bash
-pip install -r requirements.txt
-```
+- **Feed System**  
+  - **For You**: personalized ML-based recommendations  
+  - **Trending**: posts from the last 14 days with high engagement  
+  - **From Friends**: posts by users you follow  
+  - Infinite scroll + pagination + local caching  
 
-2. Authentication:
-   - Option 1: Use Application Default Credentials
-     ```bash
-     gcloud auth application-default login
-     ```
-   - Option 2: Use a service account
-     - Download your service account key file from the Google Cloud Console
-     - Rename it to `serviceAccount.json` and place it in the same directory as the script
+- **Posts & Journaling**  
+  • Create diary-style posts with text, timestamp, likes, comments  
 
-## Usage
+- **Recommendations**  
+  • Hybrid rule-based + ML model (TensorFlow/PyTorch)  
+  • Candidate generation → feature vector → inference → diversity filter  
 
-Simply run the script:
-```bash
-python firestore_to_csv.py
-```
+- **Profile & Social**  
+  • Follow/unfollow users  
+  • View follower/following counts, avatar, stats  
 
-The script will:
-1. Export all your Firestore data to a Cloud Storage bucket
-2. Download the exported data
-3. Convert each collection to a separate CSV file
+- **Performance & Caching**  
+  • Local caching of Firestore reads (`Hive`/`Drift` or `SharedPreferences`)  
+  • Time-to-live + event-based invalidation  
+  • In-memory LRU cache for movie metadata  
 
-## Output
+- **Future Enhancements**  
+  • Push notifications (FCM)  
+  • Offline write queue & background sync  
+  • Post reactions & tagging  
+  • Social sharing  
 
-- Each collection will be saved as a separate CSV file named `{collection_name}.csv`
-- The CSV files will include all fields from all documents in the collection
-- Documents with missing fields will have empty values for those fields
-- Arrays and maps will be stored as JSON strings
+---
 
-## Notes
+## 🛠 Tech Stack
 
-- Make sure you have sufficient permissions in your Google Cloud project
-- The script requires the following roles:
-  - `Cloud Datastore Import Export Admin`
-  - `Storage Object Viewer`
-- Large collections may take some time to export
-- The script handles nested data structures by converting them to JSON strings
+| Layer              | Tool / Service           |
+| ------------------ | ------------------------ |
+| Frontend           | Flutter                  |
+| State Management   | Provider                 |
+| Auth               | Firebase Auth            |
+| Database           | Firestore                |
+| Storage            | Firebase Storage         |
+| Local Cache        | Hive / Drift / SharedPreferences |
+| Media Picker       | file_picker              |
+| ML Model Training  | Python (TensorFlow/Keras)|
+| Inference Server   | FastAPI / Cloud Run      |
+
+---
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- Flutter SDK ≥ 3.x  
+- Android Studio / Xcode (for simulators)  
+- Firebase project with Auth, Firestore, Storage  
+
